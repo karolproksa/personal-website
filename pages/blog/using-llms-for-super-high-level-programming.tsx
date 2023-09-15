@@ -119,68 +119,70 @@ const UsingLlmsForSuperHighLevelProgramming = () => (
 				<INLINECODE>{`presence_penalty=2`}</INLINECODE>
 				{`and run the same test. Now it turned out to be exactly 100% deterministic. I ran the test another 100 times to make sure it's not just luck, but this attempt also proved to be 100% deterministic.`}
 			</P>
-			<table className='w-full table-auto border-neutral-200 rounded-lg border-2 border-separate border-spacing-2 text-left'>
-				<thead>
-					<tr>
-						<th>Model</th>
-						<th>gpt-3.5-turbo</th>
-						<th>gpt-3.5-turbo</th>
-						<th>gpt-3.5-turbo</th>
-						<th>gpt-4</th>
-						<th>gpt-3.5-turbo</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>temperature </td>
-						<td>{` 1 (default)`}</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-					</tr>
-					<tr>
-						<td>top_p </td>
-						<td>{` 1 (default)`}</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-					</tr>
-					<tr>
-						<td>presence_penalty </td>
-						<td>{` 0 (default)`}</td>
-						<td>{` 0 (default)`}</td>
-						<td>2</td>
-						<td>2</td>
-						<td>2</td>
-					</tr>
-					<tr>
-						<td>Task </td>
-						<td>creative</td>
-						<td>creative</td>
-						<td>creative</td>
-						<td>creative</td>
-						<td>non-creative</td>
-					</tr>
-					<tr>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-					</tr>
-					<tr>
-						<td>Determinism</td>
-						<td>0%</td>
-						<td>91.6%</td>
-						<td>100%</td>
-						<td>64.1%</td>
-						<td>80%</td>
-					</tr>
-				</tbody>
-			</table>
+			<div className='w-full overflow-x-scroll'>
+				<table className='overflow-x-scrolltext-xs md:text-base w-full table-auto border-neutral-200 rounded-lg border-2 border-separate border-spacing-2 text-left'>
+					<thead>
+						<tr>
+							<th>Model</th>
+							<th>gpt-3.5-turbo</th>
+							<th>gpt-3.5-turbo</th>
+							<th>gpt-3.5-turbo</th>
+							<th>gpt-4</th>
+							<th>gpt-3.5-turbo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>temperature </td>
+							<td>{` 1 (default)`}</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>top_p </td>
+							<td>{` 1 (default)`}</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>presence_penalty </td>
+							<td>{` 0 (default)`}</td>
+							<td>{` 0 (default)`}</td>
+							<td>2</td>
+							<td>2</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>Task </td>
+							<td>creative</td>
+							<td>creative</td>
+							<td>creative</td>
+							<td>creative</td>
+							<td>non-creative</td>
+						</tr>
+						<tr>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+						</tr>
+						<tr>
+							<td>Determinism</td>
+							<td>0%</td>
+							<td>91.6%</td>
+							<td>100%</td>
+							<td>64.1%</td>
+							<td>80%</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 			<P>
 				{`However, when I changed the model to gpt-4, its determinism
 					was at about 64.1%. Fiddling with different parameters did
@@ -319,7 +321,7 @@ const UsingLlmsForSuperHighLevelProgramming = () => (
 			<P>{`Because of that, there is a risk associated with using LLMs that way in production, where a user might convince it to act out of the ordinary. It is important to keep that in mind when implementing SHLP to production systems.`}</P>
 			<H1>Conclusion</H1>
 			<P>{`After conducting these experiments I started thinking if using SHLP was actually viable in the real world. When the operating costs of LLMs go down, will it actually be the main method for processing data and accessing a near-infinite database?`}</P>
-			<P>
+			<div className='font-main'>
 				<b>{`For now, we know that:`} </b>
 				<br />
 				<ul className='list-disc ml-4'>
@@ -328,7 +330,7 @@ const UsingLlmsForSuperHighLevelProgramming = () => (
 					<li>{`LLMs can act as program functions (processing the input in a desired way), with a limitation of non-tokenised values (strings that the model sees for the first time)`}</li>
 					<li>{`LLMs are not limited to functions included in the dataset, however they might encounter problems with processing unknown tokens`}</li>
 				</ul>
-			</P>
+			</div>
 			<P>{`It's an area that certainly needs more exploration, but with time I believe that it could be the next step in developing software. An even higher level of abstraction which processes human language to computer instructions. We will have to wait to see how Super High Level Programming actually works in real world scenarios.`}</P>
 		</Container>
 	</>
