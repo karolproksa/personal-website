@@ -16,9 +16,17 @@ interface ImgI {
 	alt: string
 }
 
+const TITLE = ({ children }: TextI) => {
+	return (
+		<h1 className='text-blue font-main font-bold text-3xl md:text-5xl leading-tight my-8 max-w-2xl'>
+			{children}
+		</h1>
+	)
+}
+
 const H1 = ({ children }: TextI) => {
 	return (
-		<h1 className='text-blue font-main font-bold text-2xl md:text-4xl leading-tight my-8 max-w-2xl'>
+		<h1 className='text-white font-main font-bold text-2xl md:text-4xl leading-tight my-8 max-w-2xl'>
 			{children}
 		</h1>
 	)
@@ -48,11 +56,15 @@ const P = ({ children }: TextI) => {
 	)
 }
 
+const I = ({ children }: TextI) => {
+	return <span className='italic'>{children}</span>
+}
+
 const Q = ({ children }: TextI) => {
 	return (
-		<blockquote className='flex items-center gap-6'>
-			<div className='w-1 h-32 bg-gradient-to-t from-blue to-green'></div>
-			<p className='text-white italic font-main font-regular text-sm md:text-base leading-relaxed my-4'>
+		<blockquote className='flex gap-6 '>
+			<div className='w-0.5 shrink-0 bg-gradient-to-t from-blue to-transparent'></div>
+			<p className='text-white italic font-main font-regular text-sm md:text-base leading-relaxed my-2'>
 				{children}
 			</p>
 		</blockquote>
@@ -64,10 +76,7 @@ const A = ({ children, href, externalHref }: LinkI) => {
 		<span className='text-green cursor-pointer w-auto font-main font-regular text-base md:text-lg leading-relaxed text-blue underline'>
 			{href && <Link href={href}>{children}</Link>}
 			{externalHref && (
-				<a
-					href={externalHref}
-					target='_blank'
-					rel='noreferrer'>
+				<a href={externalHref} target='_blank' rel='noreferrer'>
 					{children}
 				</a>
 			)}
@@ -76,17 +85,35 @@ const A = ({ children, href, externalHref }: LinkI) => {
 }
 
 const IMG = ({ src, alt }: ImgI) => {
+	return <Image className='rounded-lg my-4' src={src} alt={alt} />
+}
+
+const CODE = ({ children }: TextI) => {
 	return (
-		<div className='w-full max-w-5xl h-[30rem] mx-auto relative my-10'>
-			<Image
-				className='rounded-2xl'
-				layout='fill'
-				objectFit='cover'
-				src={src}
-				alt={alt}
-			/>
-		</div>
+		<>
+			<div className='w-full bg-neutral-900 rounded-t-lg p-4'>
+				<code className='font-space-mono text-neutral-200 w-full my-4'>
+					{children}
+				</code>
+			</div>
+			<div
+				onClick={() =>
+					navigator.clipboard.writeText(children?.toString() || '')
+				}
+				className='cursor-pointer hover:text-blue transition duration-300 font-main w-full bg-neutral-800 px-4 py-2 rounded-b-lg'
+			>
+				COPY
+			</div>
+		</>
 	)
 }
 
-export { H1, H2, H3, P, Q, A, IMG }
+const INLINECODE = ({ children }: TextI) => {
+	return (
+		<code className='font-space-mono text-neutral-200 w-full px-1 text-sm bg-neutral-900 rounded-sm'>
+			{children}
+		</code>
+	)
+}
+
+export { TITLE, H1, H2, H3, P, I, Q, A, IMG, CODE, INLINECODE }
