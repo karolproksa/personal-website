@@ -47,7 +47,7 @@ const Home: NextPage = () => {
 					.
 					<br />
 					<br />
-					In my spare time, I like to reseach things I find
+					In my spare time, I like to research things I find
 					interesting, mostly related to blockchains, AI, economics
 					and programming. On this website, you'll find articles
 					describing my research.
