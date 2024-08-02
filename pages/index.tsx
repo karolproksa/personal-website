@@ -23,9 +23,7 @@ const Home: NextPage = () => {
 			<Container className='font-main'>
 				<h2 className='text-blue font-light text-xl'>whoami</h2>
 				<p className='max-w-[600px]'>
-					My name is Karol. I'm a software developer interested in
-					economics and solving real world problems through
-					technology. At daytime, I work as CEO and co-founder at{' '}
+					My name is Karol. At daytime, I work as CEO and co-founder at{' '}
 					<a
 						href='https://synergyai.io'
 						target='_blank'
@@ -47,10 +45,9 @@ const Home: NextPage = () => {
 					.
 					<br />
 					<br />
-					In my spare time, I like to research things I find
-					interesting, mostly related to blockchains, AI, economics
-					and programming. On this website, you'll find articles
-					describing my research.
+					In my spare time, I trade shitcoins and research things I find
+					interesting, mostly related to blockchains, economics
+					and programming. On this website, you'll find research articles and opinion pieces about my current obsession.
 				</p>
 				<br />
 				<div className='flex gap-2'>
