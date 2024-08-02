@@ -50,7 +50,7 @@ const H3 = ({ children }: TextI) => {
 
 const P = ({ children }: TextI) => {
 	return (
-		<p className='text-white font-main font-regular text-base md:text-lg leading-relaxed my-4 max-w-2xl'>
+		<p className='text-white/90 font-main font-regular text-base md:text-lg leading-relaxed my-4 max-w-2xl'>
 			{children}
 		</p>
 	)
@@ -116,4 +116,20 @@ const INLINECODE = ({ children }: TextI) => {
 	)
 }
 
-export { TITLE, H1, H2, H3, P, I, Q, A, IMG, CODE, INLINECODE }
+const UL = ({ children }: TextI) => {
+	return (
+		<ul className='text-white font-main font-regular text-base md:text-lg leading-relaxed my-4 max-w-2xl'>
+			{children}
+		</ul>
+	)
+}
+
+const LI = ({ children }: TextI) => {
+	return (
+		<li className='list-disc marker:text-blue ml-8'>
+			{children}
+		</li>
+	)
+}
+
+export { TITLE, H1, H2, H3, P, I, Q, A, IMG, CODE, INLINECODE, UL, LI }
