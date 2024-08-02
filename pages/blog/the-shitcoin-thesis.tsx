@@ -284,6 +284,7 @@ const TheShitcoinThesis = () => (
                 src={"/blog/the-shitcoin-thesis/vid1.mp4"}
                 autoPlay
                 muted
+                loop
                 playsInline
                 className='h-[80vh]'
             />
